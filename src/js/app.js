@@ -6,7 +6,7 @@ console.log('worked');
 console.log(sum([1, 2])); */
 
 
-function orderByProps (objectForSorted, properties) {
+export default function orderByProps (objectForSorted, properties) {
     let keys = [];
     for (let elem in objectForSorted) {
         keys.push(elem);
