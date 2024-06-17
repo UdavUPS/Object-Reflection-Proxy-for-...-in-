@@ -7,22 +7,10 @@ console.log(sum([1, 2])); */
 
 
 export default function orderByProps (objectForSorted, properties) {
-    let keys = [];
-    for (let elem in objectForSorted) {
-        keys.push(elem);
-    }
-    keys.sort();
+    let keys = Object.keys(objectForSorted).sort();
+    let keysEnd = keys.filter((e) => !(properties.includes(e)));
+    keys = properties.concat(keysEnd);
     let mas = [];
-
-
-    for (let i = 0; i < properties.length; i++) {
-        for (const pro in objectForSorted) {
-            if (pro == properties[i]) {
-                mas.push(properties[i] + ': ' + objectForSorted[properties[i]]);
-                delete objectForSorted[properties[i]];
-            }
-        }
-    }
 
     for (const elem of keys) {
         for (const pro in objectForSorted) {
